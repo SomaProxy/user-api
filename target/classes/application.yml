@@ -1,0 +1,34 @@
+# Общие настройки Spring Boot
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_info?useSSL=false&serverTimezone=UTC
+    username: developer
+    password: 989787
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  hibernate:
+    dialect: org.hibernate.dialect.MySQL8Dialect  # Убедитесь, что вы используете MySQL диалект для Hibernate
+  jackson:
+    serialization:
+      indent_output: true
+  websocket:
+    path: /ws
+
+# Настройки для сервера
+server:
+  port: 8080
+
+# Настройки безопасности (JWT)
+jwt:
+  secret: your_jwt_secret
+  expiration: 86400000
+
+
+# Настройки для выполнения запланированных задач
+app:
+  shutdown-time: '2024-12-31T23:59:00'
